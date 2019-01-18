@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Translate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWq-UO-D8Q">
+                                <rect key="frame" x="20" y="40" width="335" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-rw-mRq">
+                                        <rect key="frame" x="20" y="61" width="58" height="28"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                        <state key="normal" title="FR">
+                                            <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="HI" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nxf-MC-HWf">
+                                        <rect key="frame" x="98" y="10" width="217" height="130"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.60301423070000004" blue="0.2156103402" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="9y7-36-lF1"/>
+                                    <constraint firstAttribute="trailing" secondItem="nxf-MC-HWf" secondAttribute="trailing" constant="20" id="P5n-kf-agm"/>
+                                    <constraint firstItem="nxf-MC-HWf" firstAttribute="top" secondItem="FWq-UO-D8Q" secondAttribute="top" constant="10" id="UCq-wP-Qw1"/>
+                                    <constraint firstAttribute="bottom" secondItem="nxf-MC-HWf" secondAttribute="bottom" constant="10" id="V8F-Be-lV7"/>
+                                    <constraint firstItem="NsN-rw-mRq" firstAttribute="centerY" secondItem="FWq-UO-D8Q" secondAttribute="centerY" id="YXK-E7-Di0"/>
+                                    <constraint firstItem="nxf-MC-HWf" firstAttribute="leading" secondItem="NsN-rw-mRq" secondAttribute="trailing" constant="20" id="d6k-uo-J1M"/>
+                                    <constraint firstItem="NsN-rw-mRq" firstAttribute="leading" secondItem="FWq-UO-D8Q" secondAttribute="leading" constant="20" id="qNR-eU-0Dy"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xeh-Gb-ZR1">
+                                <rect key="frame" x="94" y="220" width="187.5" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jcp-2E-fn3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Translate">
+                                    <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2S-Pk-5b6">
+                                <rect key="frame" x="20" y="290" width="335" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34u-se-KDQ">
+                                        <rect key="frame" x="20" y="60" width="60" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="nTD-O4-9h4"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                        <state key="normal" title="EN">
+                                            <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="jgjh" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-QQ-d89">
+                                        <rect key="frame" x="100" y="10" width="215" height="130"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.60301423070000004" blue="0.2156103402" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nYk-QQ-d89" secondAttribute="trailing" constant="20" id="B2a-1m-NuY"/>
+                                    <constraint firstItem="34u-se-KDQ" firstAttribute="leading" secondItem="d2S-Pk-5b6" secondAttribute="leading" constant="20" id="DVa-AP-oxN"/>
+                                    <constraint firstItem="nYk-QQ-d89" firstAttribute="top" secondItem="d2S-Pk-5b6" secondAttribute="top" constant="10" id="fRi-AZ-hx1"/>
+                                    <constraint firstAttribute="bottom" secondItem="nYk-QQ-d89" secondAttribute="bottom" constant="10" id="fuF-zR-9fO"/>
+                                    <constraint firstItem="nYk-QQ-d89" firstAttribute="leading" secondItem="34u-se-KDQ" secondAttribute="trailing" constant="20" id="qDV-MG-HgV"/>
+                                    <constraint firstAttribute="height" constant="150" id="rer-by-j6Q"/>
+                                    <constraint firstItem="34u-se-KDQ" firstAttribute="centerY" secondItem="d2S-Pk-5b6" secondAttribute="centerY" id="z8J-ry-a0W"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grd-6c-hgv">
+                                <rect key="frame" x="94" y="490" width="187.5" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VbG-jc-BzY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d2S-Pk-5b6" secondAttribute="trailing" constant="20" id="2Gw-ve-3Up"/>
+                            <constraint firstItem="Grd-6c-hgv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="71i-Xa-mgx"/>
+                            <constraint firstItem="Xeh-Gb-ZR1" firstAttribute="top" secondItem="FWq-UO-D8Q" secondAttribute="bottom" constant="30" id="7gC-4J-ypR"/>
+                            <constraint firstItem="d2S-Pk-5b6" firstAttribute="top" secondItem="Xeh-Gb-ZR1" secondAttribute="bottom" constant="30" id="Joi-2h-rLv"/>
+                            <constraint firstItem="FWq-UO-D8Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Trw-VO-zWf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FWq-UO-D8Q" secondAttribute="trailing" constant="20" id="Wo1-0i-Onp"/>
+                            <constraint firstItem="FWq-UO-D8Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XBX-33-Kkn"/>
+                            <constraint firstItem="Xeh-Gb-ZR1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="bEu-mv-DBe"/>
+                            <constraint firstItem="Grd-6c-hgv" firstAttribute="top" secondItem="d2S-Pk-5b6" secondAttribute="bottom" constant="50" id="gWM-v0-ia4"/>
+                            <constraint firstItem="Grd-6c-hgv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="iOq-31-aYG"/>
+                            <constraint firstItem="Xeh-Gb-ZR1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jGt-bh-Yqx"/>
+                            <constraint firstItem="d2S-Pk-5b6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zT6-9f-JfD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="clearButton" destination="Grd-6c-hgv" id="5JD-so-W5S"/>
+                        <outlet property="selectSourceButton" destination="NsN-rw-mRq" id="dpa-B1-jTe"/>
+                        <outlet property="sourceTextView" destination="nxf-MC-HWf" id="C5e-li-PBu"/>
+                        <outlet property="targetSourceButton" destination="34u-se-KDQ" id="4xz-ad-iPk"/>
+                        <outlet property="targetTextView" destination="nYk-QQ-d89" id="8s3-U6-U07"/>
+                        <outlet property="translateButton" destination="Xeh-Gb-ZR1" id="f1j-Xn-qYL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
