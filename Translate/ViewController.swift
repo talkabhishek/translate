@@ -77,11 +77,73 @@ class ViewController: UIViewController {
     }
     
     @IBAction func translateAction(_ sender: Any) {
+        guard let sourceText = sourceTextView.text, sourceText != "" else {
+            let alert = UIAlertController(title: "Error", message: "Empty source", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        //translateAPI(sourceText: sourceText)
+        translateAPI(sourceText: sourceText) { (response) in
+            print(response)
+        }
     }
     
     @IBAction func clearAction(_ sender: Any) {
         sourceTextView.text = ""
         targetTextView.text = ""
+    }
+    
+    func translateAPI(sourceText: String, callback:@escaping (_ response: Any) -> Void) {
+        
+
+        
+        //var request = URLRequest(url: URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")!)
+        
+        
+
+//                do{
+//                    let jsonResponse = try JSONSerialization.jsonObject(with:
+//                        data!, options: [])
+//                    print(jsonResponse) //Response result
+//                } catch let parsingError {
+//                    print("Error", parsingError)
+//                }
+
+        
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "87115199-7bdf-44be-8be7-a96d6a64f67f"
+        ]
+        
+        let postData = NSMutableData(data: "format=text".data(using: String.Encoding.utf8)!)
+        postData.append("&source=en".data(using: String.Encoding.utf8)!)
+        postData.append("&target=zh".data(using: String.Encoding.utf8)!)
+        postData.append("&q=[\(sourceText)]".data(using: String.Encoding.utf8)!)
+        postData.append("&undefined=undefined".data(using: String.Encoding.utf8)!)
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+            }
+        })
+        
+        dataTask.resume()
     }
     
 }
