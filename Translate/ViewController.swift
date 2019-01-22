@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Translate"
+        title = NSLocalizedString("Translate", comment: "Translate")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,11 +58,14 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else { return }
         let alert = UIAlertController(title: "Select One", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "FR", style: UIAlertAction.Style.default, handler: { (action) in
-            button.setTitle("FR", for: .normal)
+        alert.addAction(UIAlertAction(title: "en", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("en", for: .normal)
         }))
-        alert.addAction(UIAlertAction(title: "EN", style: UIAlertAction.Style.default, handler: { (action) in
-            button.setTitle("EN", for: .normal)
+        alert.addAction(UIAlertAction(title: "fr", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("fr", for: .normal)
+        }))
+        alert.addAction(UIAlertAction(title: "zh", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("zh", for: .normal)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -71,11 +74,14 @@ class ViewController: UIViewController {
         guard let button = sender as? UIButton else { return }
         let alert = UIAlertController(title: "Select One", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "FR", style: UIAlertAction.Style.default, handler: { (action) in
-            button.setTitle("FR", for: .normal)
+        alert.addAction(UIAlertAction(title: "en", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("en", for: .normal)
         }))
-        alert.addAction(UIAlertAction(title: "EN", style: UIAlertAction.Style.default, handler: { (action) in
-            button.setTitle("EN", for: .normal)
+        alert.addAction(UIAlertAction(title: "fr", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("fr", for: .normal)
+        }))
+        alert.addAction(UIAlertAction(title: "zh", style: UIAlertAction.Style.default, handler: { (action) in
+            button.setTitle("zh", for: .normal)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -91,8 +97,7 @@ class ViewController: UIViewController {
         }
         //translateAPI(sourceText: sourceText)
         activityView.isHidden = false
-        translateAPI(sourceText: sourceText) { (response) in
-            print(response)
+        translateAPI(source: selectSourceButton.titleLabel?.text ?? "fr", target: targetSourceButton.titleLabel?.text ?? "fr", sourceText: sourceText) { (response) in
             if let respDict = response as? [String: Any], let data = respDict["data"] as? [String: Any], let translations = data["translations"] as? [[String: String]], translations.count > 0 {
                 DispatchQueue.main.async {
                     self.targetTextView.text = translations[0]["translatedText"] ?? ""
@@ -107,15 +112,15 @@ class ViewController: UIViewController {
         targetTextView.text = ""
     }
     
-    func translateAPI(sourceText: String, callback:@escaping (_ response: Any) -> Void) {
-        let key="Add Key here"
+    func translateAPI(source: String, target:String, sourceText: String, callback:@escaping (_ response: Any) -> Void) {
+        let key="API Key"
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
         let postData = NSMutableData(data: "format=text".data(using: String.Encoding.utf8)!)
-        postData.append("&source=en".data(using: String.Encoding.utf8)!)
-        postData.append("&target=zh".data(using: String.Encoding.utf8)!)
+        postData.append("&source=\(source)".data(using: String.Encoding.utf8)!)
+        postData.append("&target=\(target)".data(using: String.Encoding.utf8)!)
         postData.append("&q=\(sourceText)".data(using: String.Encoding.utf8)!)
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=\(key)")! as URL,

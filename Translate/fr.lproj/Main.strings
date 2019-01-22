@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "fr"; ObjectID = "34u-se-KDQ"; */
+"34u-se-KDQ.normalTitle" = "fr";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "Grd-6c-hgv"; */
+"Grd-6c-hgv.normalTitle" = "Effacer";
+
+/* Class = "UIButton"; normalTitle = "en"; ObjectID = "NsN-rw-mRq"; */
+"NsN-rw-mRq.normalTitle" = "en";
+
+/* Class = "UIButton"; normalTitle = "Translate"; ObjectID = "Xeh-Gb-ZR1"; */
+"Xeh-Gb-ZR1.normalTitle" = "Traduire";
+
+/* Class = "UILabel"; text = "Source"; ObjectID = "cuQ-tO-MZ0"; */
+"cuQ-tO-MZ0.text" = "Texte à traduire";
+
+/* Class = "UILabel"; text = "Translation"; ObjectID = "ffz-Ve-it1"; */
+"ffz-Ve-it1.text" = "Texte traduit";

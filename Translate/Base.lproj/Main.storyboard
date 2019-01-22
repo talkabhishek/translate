@@ -21,17 +21,6 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWq-UO-D8Q">
                                 <rect key="frame" x="20" y="84" width="335" height="150"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-rw-mRq">
-                                        <rect key="frame" x="20" y="81" width="60" height="28"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
-                                        <state key="normal" title="FR">
-                                            <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sourceSelectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2N9-Ik-f5z"/>
-                                        </connections>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nxf-MC-HWf">
                                         <rect key="frame" x="100" y="30" width="215" height="110"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,6 +33,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-rw-mRq">
+                                        <rect key="frame" x="19" y="81" width="60" height="28"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                        <state key="normal" title="en">
+                                            <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sourceSelectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2N9-Ik-f5z"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.60301423070000004" blue="0.2156103402" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -84,7 +84,7 @@
                                             <constraint firstAttribute="height" constant="30" id="nTD-O4-9h4"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
-                                        <state key="normal" title="EN">
+                                        <state key="normal" title="fr">
                                             <color key="titleColor" red="0.91707372669999998" green="0.60301423070000004" blue="0.2156103402" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
