@@ -96,12 +96,7 @@ class ViewController: UIViewController {
         targetTextView.text = ""
     }
     
-    func translateAPI(sourceText: String, callback:@escaping (_ response: Any) -> Void) {
-        
-
-        
-        //var request = URLRequest(url: URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")!)
-        
+    func translateAPI(sourceText: String, callback:@escaping (_ response: Any) -> Void) {        
         
 
 //                do{
@@ -126,7 +121,7 @@ class ViewController: UIViewController {
         postData.append("&q=[\(sourceText)]".data(using: String.Encoding.utf8)!)
         postData.append("&undefined=undefined".data(using: String.Encoding.utf8)!)
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=key")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
