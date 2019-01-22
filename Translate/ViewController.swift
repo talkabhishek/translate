@@ -19,10 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var activityView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        title = "Translate"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +32,9 @@ class ViewController: UIViewController {
     }
     
     func setAppView() {
+        
+        activityView.layer.cornerRadius = 5
+        activityView.layer.masksToBounds = true
         targetTextView.isEditable = false
         sourceBackView.layer.cornerRadius = 5
         sourceBackView.layer.masksToBounds = true
@@ -86,8 +90,15 @@ class ViewController: UIViewController {
             return
         }
         //translateAPI(sourceText: sourceText)
+        activityView.isHidden = false
         translateAPI(sourceText: sourceText) { (response) in
             print(response)
+            if let respDict = response as? [String: Any], let data = respDict["data"] as? [String: Any], let translations = data["translations"] as? [[String: String]], translations.count > 0 {
+                DispatchQueue.main.async {
+                    self.targetTextView.text = translations[0]["translatedText"] ?? ""
+                    self.activityView.isHidden = true
+                }
+            }
         }
     }
     
@@ -97,36 +108,17 @@ class ViewController: UIViewController {
     }
     
     func translateAPI(sourceText: String, callback:@escaping (_ response: Any) -> Void) {
-        
-
-        
-        //var request = URLRequest(url: URL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")!)
-        
-        
-
-//                do{
-//                    let jsonResponse = try JSONSerialization.jsonObject(with:
-//                        data!, options: [])
-//                    print(jsonResponse) //Response result
-//                } catch let parsingError {
-//                    print("Error", parsingError)
-//                }
-
-        
-        
+        let key="Add Key here"
         let headers = [
-            "Content-Type": "application/json",
-            "cache-control": "no-cache",
-            "Postman-Token": "87115199-7bdf-44be-8be7-a96d6a64f67f"
+            "Content-Type": "application/x-www-form-urlencoded"
         ]
         
         let postData = NSMutableData(data: "format=text".data(using: String.Encoding.utf8)!)
         postData.append("&source=en".data(using: String.Encoding.utf8)!)
         postData.append("&target=zh".data(using: String.Encoding.utf8)!)
-        postData.append("&q=[\(sourceText)]".data(using: String.Encoding.utf8)!)
-        postData.append("&undefined=undefined".data(using: String.Encoding.utf8)!)
+        postData.append("&q=\(sourceText)".data(using: String.Encoding.utf8)!)
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBz7ew4awv7dAFWUNSb1xDWcEuA3YSLCuE")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://translation.googleapis.com/language/translate/v2?key=\(key)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"
@@ -136,10 +128,20 @@ class ViewController: UIViewController {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error)
+                print(error?.localizedDescription ?? "Error")
+                callback(error?.localizedDescription ?? "Error")
             } else {
                 let httpResponse = response as? HTTPURLResponse
-                print(httpResponse)
+                print(httpResponse?.statusCode ?? 00)
+                do{
+                    let jsonResponse = try JSONSerialization.jsonObject(with:
+                        data!, options: [])
+                    print(jsonResponse) //Response result
+                    callback(jsonResponse)
+                } catch let parsingError {
+                    print("Error", parsingError)
+                    callback (parsingError.localizedDescription)
+                }
             }
         })
         
